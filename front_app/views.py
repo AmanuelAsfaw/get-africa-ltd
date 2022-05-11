@@ -5,3 +5,6 @@ from django.shortcuts import render
 
 def index(request):
     return render(request,"front_app/index.html", {})
+
+def product_detail(request):
+    return render(request, "front_app/product-detail.html", {})
