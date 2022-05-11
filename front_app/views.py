@@ -8,3 +8,6 @@ def index(request):
 
 def product_detail(request):
     return render(request, "front_app/product-detail.html", {})
+
+def auth_page(request):
+    return render(request,"front_app/auth.html", {})
