@@ -104,48 +104,15 @@
             <li><a class="nav-link scrollto" href="/#services">Services</a></li>
             <li class="dropdown"><a href="#"><span>Catagory</span> <i class="bi bi-chevron-down"></i></a>
               <ul>
-                <li class="dropdown"><a href="product-detail"><span>GET EDUCATIONAL MATERIAL </span> <i class="bi bi-chevron-right"></i></a>
-                  <ul>
-                    <li><a href="#">EDUCATIONAL Laboratory </a></li>
-                    <li><a href="#">EDU MATERIALS chalks, duster </a></li>
-                    <li><a href="#">PUBLISHING</a></li>
-                  </ul>
-                </li>
-                <li class="dropdown"><a href="#"><span>GET EMERGENCY </span> <i class="bi bi-chevron-right"></i></a>
-                  <ul>
-                    <li><a href="#">Covid materials</a></li>
-                    <li><a href="#">Non-food item </a></li>
-                    <li><a href="#">Food item</a></li>
-                    <li><a href="#">Water treatment chemicals </a></li>
-                  </ul>
-                </li>
-                <li class="dropdown"><a href="#"><span>GET MININING  </span> <i class="bi bi-chevron-right"></i></a>
-                  <ul>
-                    <li><a href="#">MINERAL EXPORT </a></li>
-                    <li><a href="#">GRADING  </a></li>
-                  </ul>
-                </li>
-                <li class="dropdown"><a href="#"><span>GET property development  </span> <i class="bi bi-chevron-right"></i></a>
-                  <ul>
-                    <li><a href="#">BUILDING  </a></li>
-                    <li><a href="#">FURNISHED APARTMENT</a></li>
-                    
-                  </ul>
-                </li>
-                <li class="dropdown"><a href="#"><span>GET construction  </span> <i class="bi bi-chevron-right"></i></a>
-                  <ul>
-                    <li><a href="#">CEMENT</a></li>
-                    <li><a href="#">RANGE </a></li>
-                    <li><a href="#">MDF</a></li>
-                    <li><a href="#">IRON  </a></li>
-                  </ul>
-                </li>
-                <li class="dropdown"><a href="#"><span>GET INTEX </span> <i class="bi bi-chevron-right"></i></a>
-                  <ul>
-                    <li><a href="#">SESAME </a></li>
-                    <li><a href="#">COFFEE </a></li>
-                  </ul>
-                </li>
+                {% for catagory in catagory_list %}
+                  <li class="dropdown"><a href="/catagory-detail/{{catagory.id}}"><span>GET {{ catagory.title }} </span> <i class="bi bi-chevron-right"></i></a>
+                    <ul>
+                      {% for product in catagory.product_set.all %}
+                        <li><a href="/product-detail/{{product.id}}">{{ product.title }}</a></li>
+                      {% endfor %}
+                    </ul>
+                  </li>
+                {% endfor %}
               </ul>
             </li>
             <li><a class="nav-link scrollto" href="/#team">Team</a></li>
@@ -235,158 +202,51 @@
     </section><!-- End Breadcrumbs -->
 
     <!-- ======= Portfolio Details Section ======= -->
-    <section id="portfolio-details" class="portfolio-details">
-      <secton id="first" clasee="first">
-       <div class="container">
+    {% for product in product_list %}
+      <section id="portfolio-details" class="portfolio-details">
+        <secton id="first" clasee="first">
+        <div class="container">
 
-        <div class="row gy-4">
+          <div class="row gy-4">
 
-          <div class="col-lg-8">
-            <div class="portfolio-details-slider swiper">
-              <div class="swiper-wrapper align-items-center">
-
-                <div class="swiper-slide">
-                  <img src="{% static 'assets/img/second/portfolio1-1.jpg' %}" alt="">
+            <div class="col-lg-8">
+              <div class="portfolio-details-slider swiper">
+                <div class="swiper-wrapper align-items-center">
+                  {% for image in product.productimage_set.all %}
+                    <div class="swiper-slide">
+                      <img src="{{ image.image.url }}" alt="">
+                    </div>
+                  {% endfor %}
                 </div>
-
-                <div class="swiper-slide">
-                  <img src="{% static 'assets/img/second/portfolio1-2.jpg' %}" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="{% static 'assets/img/second/portfolio1-3.jpg' %}" alt="">
-                </div>
-
+                <div class="swiper-pagination"></div>
               </div>
-              <div class="swiper-pagination"></div>
             </div>
-          </div>
 
-          <div  class="col-lg-4">
-            <div class="portfolio-info">
-              <h3>SAFTY PRODUCTS </h3>
-              <ul>
-                <li><strong>Sub-Category</strong>: FIRST AID KITS</li>
-                <li><strong>DUTE PRODUCT</strong>: CURRENTLY ON STOCK </li>
-                <li><strong>Relase date</strong>: 20/15/12</li>
-                <li><strong>contact </strong>: <a href="#">edu@get.com </a></li>
-              </ul>
+            <div  class="col-lg-4">
+              <div class="portfolio-info">
+                <h3>{{ product.title }}</h3>
+                <ul>
+                  <li><strong>Sub-Category</strong>: {{ product.catagory.title }}</li>
+                  <li><strong>DUTE PRODUCT</strong>: CURRENTLY <b style="color: #057fe7;">{{ product.countInStock }}</b> ON STOCK </li>
+                  <li><strong>Relase date</strong>: 20/15/12</li>
+                  <li><strong>contact </strong>: <a href="#">{{ product.contact }} </a></li>
+                </ul>
+              </div>
+              <div class="portfolio-description">
+                <h2>Tips about our products </h2>
+                <p>
+                  {{ product.tip }} 
+          
+                </p>
+              </div>
             </div>
-            <div class="portfolio-description">
-              <h2>Tips about our products </h2>
-              <p>
-              GET EQUIPMENT DETAILS 
-        
-              </p>
-            </div>
+
           </div>
 
         </div>
-
-      </div>
-    </secton>
-    </section>
-
-    <section id="portfolio-details" class="portfolio-details">
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-8">
-            <div class="portfolio-details-slider swiper">
-              <div class="swiper-wrapper align-items-center">
-
-                <div class="swiper-slide">
-                  <img src="{% static 'assets/img/second/portfolio1-4.jpg' %}" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="{% static 'assets/img/second/portfolio1-5.jpg' %}" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="{% static 'assets/img/second/portfolio1-7.jpg' %}" alt="">
-                </div>
-
-              </div>
-              <div class="swiper-pagination"></div>
-            </div>
-          </div>
-
-          <div class="col-lg-4">
-            <div class="portfolio-info">
-              <h3>COVID MATERIALS</h3>
-              <ul>
-                <li><strong>Sub-Category</strong>: covid protection</li>
-                <li><strong>DUTE PRODUCT</strong>: CURRENTLY ON STOCK </li>
-                <li><strong>date</strong>: 16/3/2014</li>
-                <li><strong>contact </strong>: <a href="#">edu@get.com </a></li>
-              </ul>
-            </div>
-            <div class="portfolio-description">
-              <h2>Tips about our products </h2>
-              <p>
-         GET EQUIPMENT DETAILS 
-
-
-              </p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Portfolio Details Section -->
-    <section id="portfolio-details" class="portfolio-details">
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-8">
-            <div class="portfolio-details-slider swiper">
-              <div class="swiper-wrapper align-items-center">
-
-                <div class="swiper-slide">
-                  <img src="{% static 'assets/img/second/portfolio1-8.jpg' %}" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="{% static 'assets/img/second/portfolio1-9.jpg' %}" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="{% static 'assets/img/second/portfolio1-10.jpg' %}" alt="">
-                </div>
-
-              </div>
-              <div class="swiper-pagination"></div>
-            </div>
-          </div>
-
-          <div class="col-lg-4">
-            <div class="portfolio-info">
-              <h3>FOOD TEMS AND FRESH FRUITS</h3>
-              <ul>
-                <li><strong>Sub-Category</strong>: FOOD ITEMS</li>
-                <li><strong>DUTE PRODUCT</strong>: CURRENTLY ON STOCK </li>
-                <li><strong>Relase-Date</strong>: 15/3/2012</li>
-                <li><strong>contact </strong>: <a href="#">edu@get.com </a></li>
-              </ul>
-            </div>
-            <div class="portfolio-description">
-              <h2>Tips about our products </h2>
-              <p>
-              GET EQUIPMENT DETAILS 
-            
-              </p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
+      </secton>
+      </section>
+    {% endfor %}
   </main><!-- End #main -->
      <header id="header">
 
@@ -434,12 +294,9 @@
             <div class="col-lg-3 col-md-6 footer-links">
               <h4>Our Services</h4>
               <ul>
-                <li><i class="bx bx-chevron-right"></i> <a href="#">GET EDUCATIONAL MATERIAL </a></li>
-                <li><i class="bx bx-chevron-right"></i> <a href="#">GET EMERGENCY  </a></li>
-                <li><i class="bx bx-chevron-right"></i> <a href="#">GET MININING </a></li>
-                <li><i class="bx bx-chevron-right"></i> <a href="#">GET property development </a></li>
-                <li><i class="bx bx-chevron-right"></i> <a href="#">GET construction </a></li>
-                <li><i class="bx bx-chevron-right"></i> <a href="#">GET INTEX</a></li>
+                {% for serv in service_list %}
+                  <li><i class="bx bx-chevron-right"></i> <a href="#">GET {{ serv.title }} </a></li>
+                {% endfor %}
               </ul>
             </div>
 
