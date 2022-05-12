@@ -305,12 +305,9 @@ span
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Our Services</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">GET EDUCATIONAL MATERIAL </a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">GET EMERGENCY  </a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">GET MININING </a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">GET property development </a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">GET construction </a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">GET INTEX</a></li>
+              {% for serv in service_list %}
+                <li><i class="bx bx-chevron-right"></i> <a href="#">GET {{ serv.title }} </a></li>
+              {% endfor %}
             </ul>
           </div>
 
