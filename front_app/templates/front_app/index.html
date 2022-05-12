@@ -52,48 +52,15 @@
           <li><a class="nav-link scrollto" href="#services">Services</a></li>
           <li class="dropdown"><a href="#"><span>Catagory</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li class="dropdown"><a href="product-detail"><span>GET EDUCATIONAL MATERIAL </span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">EDUCATIONAL Laboratory </a></li>
-                  <li><a href="#">EDU MATERIALS chalks, duster </a></li>
-                  <li><a href="#">PUBLISHING</a></li>
-                </ul>
-              </li>
-              <li class="dropdown"><a href="product-detail"><span>GET EMERGENCY </span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Covid materials</a></li>
-                  <li><a href="#">Non-food item </a></li>
-                  <li><a href="#">Food item</a></li>
-                  <li><a href="#">Water treatment chemicals </a></li>
-                </ul>
-              </li>
-              <li class="dropdown"><a href="#"><span>GET MININING  </span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">MINERAL EXPORT </a></li>
-                  <li><a href="#">GRADING  </a></li>
-                </ul>
-              </li>
-              <li class="dropdown"><a href="#"><span>GET property development  </span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">BUILDING  </a></li>
-                  <li><a href="#">FURNISHED APARTMENT</a></li>
-                  
-                </ul>
-              </li>
-              <li class="dropdown"><a href="#"><span>GET construction  </span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">CEMENT</a></li>
-                  <li><a href="#">RANGE </a></li>
-                  <li><a href="#">MDF</a></li>
-                  <li><a href="#">IRON  </a></li>
-                </ul>
-              </li>
-              <li class="dropdown"><a href="#"><span>GET INTEX </span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">SESAME </a></li>
-                  <li><a href="#">COFFEE </a></li>
-                </ul>
-              </li>
+              {% for catagory in catagory_list %}
+                <li class="dropdown"><a href="product-detail"><span>GET {{ catagory.title }} </span> <i class="bi bi-chevron-right"></i></a>
+                  <ul>
+                    {% for product in catagory.product_set.all %}
+                      <li><a href="#">{{ product.title }}</a></li>
+                    {% endfor %}
+                  </ul>
+                </li>
+              {% endfor %}
             </ul>
           </li>
           <li><a class="nav-link scrollto " href="#portfolio">Products</a></li>
@@ -121,42 +88,14 @@
       </div>
 
       <div class="row gy-4 mt-5 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
+        {% for serv in service_list %}
         <div class="col-xl-2 col-md-4">
           <div class="icon-box">
-            <i class="ri-book-open-fill"></i>
-            <h3><a href="">GET EDUCATIONAL MATERIAL</a></h3>
+            <i class="{{ serv.icon_class }}"></i>
+            <h3><a href="">GET {{serv.title}}</a></h3>
           </div>
         </div>
-        <div class="col-xl-2 col-md-4">
-          <div class="icon-box">
-            <i class="ri-alarm-warning-line"></i>
-            <h3><a href="">GET EMERGENCY </a></h3>
-          </div>
-        </div>
-        <div class="col-xl-2 col-md-4">
-          <div class="icon-box">
-            <i class="ri-hammer-fill"></i>
-            <h3><a href="">GET MININING </a></h3>
-          </div>
-        </div>
-        <div class="col-xl-2 col-md-4">
-          <div class="icon-box">
-            <i class="ri-home-wifi-fill"></i>
-            <h3><a href="">GET property development </a></h3>
-          </div>
-        </div>
-        <div class="col-xl-2 col-md-4">
-          <div class="icon-box">
-            <i class="ri-building-2-fill"></i>
-            <h3><a href="">GET construction </a></h3>
-          </div>
-        </div>
-        <div class="col-xl-2 col-md-4">
-          <div class="icon-box">
-            <i class="ri-arrow-left-right-fill"></i>
-            <h3><a href="">GET INTEX</a></h3>
-          </div>
-        </div>
+        {% endfor %}
       </div>
 
     </div>
@@ -178,13 +117,12 @@
               
             </p>
             <ul>
-              <li><i class="ri-check-double-line"></i> DETAILS ABOUT YOUR SERVICE  DETAILS ABOUT YOUR SERVICE  DETAILS ABOUT YOUR SERVICE </li>
-              <li><i class="ri-check-double-line"></i>  DETAILS ABOUT YOUR SERVICE  DETAILS ABOUT YOUR SERVICE  DETAILS ABOUT YOUR SERVICE .</li>
-              <li><i class="ri-check-double-line"></i> DETAILS ABOUT YOUR SERVICE  DETAILS ABOUT YOUR SERVICE  DETAILS ABOUT YOUR SERVICE</li>
+              {% for data in about_list_info %}
+                <li><i class="ri-check-double-line"></i>{{ data }}</li>
+              {% endfor %}
             </ul>
             <p>
-  DETAILS ABOUT YOUR SERVICE  DETAILS ABOUT YOUR SERVICE  DETAILS ABOUT YOUR SERVICE 
-             DETAILS ABOUT YOUR SERVICE  DETAILS ABOUT YOUR SERVICE  DETAILS ABOUT YOUR SERVICE
+              {{ about_body }}
             </p>
           </div>
         </div>
@@ -220,26 +158,13 @@
         <div class="row">
           <div class="image col-lg-6" style='background-image: url("assets/img/features.png");' data-aos="fade-right"></div>
           <div class="col-lg-6" data-aos="fade-left" data-aos-delay="100">
-            <div class="icon-box mt-5 mt-lg-0" data-aos="zoom-in" data-aos-delay="150">
-              <i class="ri-book-open-fill"></i>
-              <h4>GET EDUCATIONAL MATERIALS</h4>
-              <p>DETAILS ABOUT YOUR SERVICE  DETAILS ABOUT YOUR SERVICE  DETAILS ABOUT YOUR SERVICE</p>
-            </div>
-            <div class="icon-box mt-5" data-aos="zoom-in" data-aos-delay="150">
-              <i class="ri-alarm-warning-line"></i>
-              <h4>GET EMERGENCY MATERIALS</h4>
-              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
-            </div>
-            <div class="icon-box mt-5" data-aos="zoom-in" data-aos-delay="150">
-              <i class="ri-hammer-fill"></i>
-              <h4>GET MININIG</h4>
-              <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
-            </div>
-            <div class="icon-box mt-5" data-aos="zoom-in" data-aos-delay="150">
-              <i class="ri-home-wifi-fill"></i>
-              <h4>GET PROPERTY DEVELOPMENT</h4>
-              <p>Expedita veritatis consequuntur nihil tempore laudantium vitae denat pacta</p>
-            </div>
+            {% for serv in service_list %}
+              <div class="icon-box mt-5 mt-lg-0" data-aos="zoom-in" data-aos-delay="150">
+                <i class="{{ serv.icon_class}}"></i>
+                <h4>GET {{ serv.title }}</h4>
+                <p>{{ serv.description }}</p>
+              </div>
+            {% endfor %}
           </div>
         </div>
 
@@ -256,53 +181,15 @@
         </div>
 
         <div class="row">
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-            <div class="icon-box">
-              <div class="icon"><i class="ri-book-open-fill"></i></div>
-              <h4><a href="">GET EDUCATIONAL MATERIAL</a></h4>
-              <p>educational aids</p>
+          {%for service in service_list %}
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+              <div class="icon-box">
+                <div class="icon"><i class="{{ service.icon_class}}"></i></div>
+                <h4><a href="">GET {{ service.title }}</a></h4>
+                <p>{{ service.description }}</p>
+              </div>
             </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
-            <div class="icon-box">
-              <div class="icon"><i class="ri-alarm-warning-line"></i></div>
-              <h4><a href="">GET EMERGENCY </a></h4>
-              <p>emergncy equipments</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
-            <div class="icon-box">
-              <div class="icon"><i class="ri-hammer-fill"></i></div>
-              <h4><a href="">GET MININING </a></h4>
-              <p>minined minerals</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
-            <div class="icon-box">
-              <div class="icon"><i class="ri-home-wifi-fill"></i></div>
-              <h4><a href="">GET property development </a></h4>
-              <p>property items </p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="200">
-            <div class="icon-box">
-              <div class="icon"><i class="ri-building-2-fill"></i></div>
-              <h4><a href="">GET construction </a></h4>
-              <p>construction items </p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
-            <div class="icon-box">
-              <div class="icon"><i class="ri-arrow-left-right-fill"></i></div>
-              <h4><a href="">GET INTEX</a></h4>
-              <p>IMPORTED ITEMS</p>
-            </div>
-          </div>
+          {% endfor %}
 
         </div>
 
@@ -335,140 +222,39 @@
           <div class="col-lg-12 d-flex justify-content-center">
             <ul id="portfolio-flters">
               <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-app">|EDUCATIONAL MATERIALS| </li>
-              <li data-filter=".filter-card">|EMERGENCY EQUPIMENTS|</li>
-              <li data-filter=".filter-web">|GET INTEX|</li>
+              {% for catagory in catagory_list %}
+                <li data-filter=".filter-app{{catagory.id}}">|{{ catagory.title }}| </li>
+              {% endfor %}
             </ul>
           </div>
         </div>
 
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="{% static 'assets/img/portfolio/portfolio-1.jpg' %}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>BOOKS AND RELATED MATERIALS </h4>
-                <p>BOOKS AND RELATED MATERIALS </p>
-                <div class="portfolio-links">
-                  <a href="{% static 'assets/img/portfolio/portfolio-1.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="GET EDUCATIONAL"><i class="bx bx-plus"></i></a>
-                  <a href="product-details.html" title="More Details"><i class="bx bx-link"></i></a>
+          {% for product in product_list %}
+            <div class="col-lg-4 col-md-6 portfolio-item filter-app{{product.catagory.id}}">
+              <div class="portfolio-wrap">
+                {% if product.icon %}
+                  <img src="{{ product.icon.url }}" class="img-fluid" alt="">
+                {% else %}
+                  <img src="{% static '/assets/img/image-not-found.png' %}" class="img-fluid" alt="">
+                {% endif %}
+                
+                <div class="portfolio-info">
+                  <h4>{{ product.title}}</h4>
+                  <p>{{ product.description }} </p>
+                  <div class="portfolio-links">
+                    {% if product.icon %}
+                      <a href="{{ product.icon.url }}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="GET EDUCATIONAL"><i class="bx bx-plus"></i></a>
+                    {% else %}
+                      <a href="{% static '/assets/img/image-not-found.png' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="GET EDUCATIONAL"><i class="bx bx-plus"></i></a>
+                    {% endif %}
+                    
+                    <a href="product-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="{% static 'assets/img/portfolio/portfolio-2.jpg' %}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>sesame</h4>
-                <p>sesame</p>
-                <div class="portfolio-links">
-                  <a href="{% static 'assets/img/portfolio/portfolio-2.jpg' %}"data-gallery="portfolioGallery" class="portfolio-lightbox" title="GET INTEX"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="{% static 'assets/img/portfolio/portfolio-3.jpg' %}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>LABRATORY EQUIPMENTS </h4>
-                <p>LABERATORY EQUIPMENTS </p>
-                <div class="portfolio-links">
-                  <a href="{% static 'assets/img/portfolio/portfolio-3.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="GET EMERGENCY"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="{% static 'assets/img/portfolio/portfolio-4.jpg' %}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>FULL PROTECTION  </h4>
-                <p>protections</p>
-                <div class="portfolio-links">
-                  <a href="{% static 'assets/img/portfolio/portfolio-4.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="PROTECTION "><i class="bx bx-plus"></i></a>
-                  <a href="product2-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="{% static 'assets/img/portfolio/portfolio-5.jpg' %}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>EXPORTED ITEMS</h4>
-                <p>EXPORTED ITEMS </p>
-                <div class="portfolio-links">
-                  <a href="{% static 'assets/img/portfolio/portfolio-5.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="EXPORTED ITMES"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="{% static 'assets/img/portfolio/portfolio-6.jpg' %}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>STATIONRY ITEMS </h4>
-                <p>STATIONRY INTEMS</p>
-                <div class="portfolio-links">
-                  <a href="{% static 'assets/img/portfolio/portfolio-6.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="STATIONRY EQUIPMENTS"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="{% static 'assets/img/portfolio/portfolio-7.jpg' %}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>PROTECTION</h4>
-                <p>MASKS AND GUANTULETS</p>
-                <div class="portfolio-links">
-                  <a href="{% static 'assets/img/portfolio/portfolio-7.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="GET EMERGENCY"><i class="bx bx-plus"></i></a>
-                  <a href="product2-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="{% static 'assets/img/portfolio/portfolio-8.jpg' %}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>EMERGENCY EQUIPMENTS</h4>
-                <p>EQ</p>
-                <div class="portfolio-links">
-                  <a href="{% static 'assets/img/portfolio/portfolio-8.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="EQUIPMENTS"><i class="bx bx-plus"></i></a>
-                  <a href="product2-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="{% static 'assets/img/portfolio/portfolio-9.jpg' %}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>cofee</h4>
-                <p>cofee</p>
-                <div class="portfolio-links">
-                  <a href="{% static 'assets/img/portfolio/portfolio-9.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="GET INTEX"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
+          {% endfor %}
 
         </div>
 
@@ -486,70 +272,20 @@
         <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
           <div class="swiper-wrapper">
 
+            {% for testimoni in testimonials %}
             <div class="swiper-slide">
               <div class="testimonial-item">
                 <img src="{% static 'assets/img/testimonials/testimonials-.jpg' %}" class="testimonial-img" alt="">
-                <h3>NAME</h3>
-                <h4>Ceo &amp; Founder</h4>
+                <h3>{{ testimoni.user_name }}</h3>
+                <h4>{{ testimoni.user_position }}</h4>
                 <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  get EDUCATIONAL MATERIAL HAS DELIVERD EVERYTHING WITH A VERY GOOD PRICE AND SWIFITLY
+                  {{ testimoni.body }}
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
               </div>
             </div><!-- End testimonial item -->
-
-         <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="{% static 'assets/img/testimonials/testimonials-.jpg' %}" class="testimonial-img" alt="">
-                <h3>name </h3>
-                <h4>testmimonier</h4>
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                    get EDUCATIONAL MATERIAL HAS DELIVERD EVERYTHING WITH A VERY GOOD PRICE AND SWIFITLY
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="{% static 'assets/img/testimonials/testimonials-.jpg' %}" class="testimonial-img" alt="">
-                <h3>NAME OF THE TESTEMONIAL</h3>
-                <h4>OWNERSHIP</h4>
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                    get EDUCATIONAL MATERIAL HAS DELIVERD EVERYTHING WITH A VERY GOOD PRICE AND SWIFITLY.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->*/
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="{% static 'assets/img/testimonials/testimonials-.jpg' %}" class="testimonial-img" alt="">
-                <h3>NAME OF THE</h3>
-                <h4>MARKETING MANAGRE of sas super market</h4>
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                    get EDUCATIONAL MATERIAL HAS DELIVERD EVERYTHING WITH A VERY GOOD PRICE AND SWIFITLY
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="{% static 'assets/img/testimonials/testimonials-.jpg' %}" class="testimonial-img" alt="">
-                <h3>NAME OF THE</h3>
-                <h4>DIRECTOR OF SUNNY SIDE SCHOOL </h4>
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-       get EDUCATIONAL MATERIAL HAS DELIVERD EVERYTHING WITH A VERY GOOD PRICE AND SWIFITLY
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->
+            {% endfor %}
           </div>
           <div class="swiper-pagination"></div>
         </div>
@@ -567,7 +303,7 @@
         </div>
 
         <div class="row">
-
+          {% for member in team_member %}
           <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
             <div class="member" data-aos="fade-up" data-aos-delay="100">
               <div class="member-img">
@@ -580,65 +316,12 @@
                 </div>
               </div>
               <div class="member-info">
-                <h4>NAME</h4>
-                <span>Chief Executive Officer</span>
+                <h4>{{ member.user.username }}</h4>
+                <span>{{ member.position }}</span>
               </div>
             </div>
           </div>
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-            <div class="member" data-aos="fade-up" data-aos-delay="200">
-              <div class="member-img">
-                <img src="assets/img/team/team-.jpg" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>NAME</h4>
-                <span>marketing manager</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-            <div class="member" data-aos="fade-up" data-aos-delay="300">
-              <div class="member-img">
-                <img src="assets/img/team/team-.jpg" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>NAME </h4>
-                <span>CTO</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-            <div class="member" data-aos="fade-up" data-aos-delay="400">
-              <div class="member-img">
-                <img src="assets/img/team/team-.jpg" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>NAME </h4>
-                <span>Accountant</span>
-              </div>
-            </div>
-          </div>
+          {% endfor %}
 
         </div>
 
@@ -756,12 +439,9 @@
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Our Services</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">GET EDUCATIONAL MATERIAL </a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">GET EMERGENCY  </a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">GET MININING </a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">GET property development </a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">GET construction </a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">GET INTEX</a></li>
+              {% for serv in service_list %}
+                <li><i class="bx bx-chevron-right"></i> <a href="#">GET {{ serv.title }} </a></li>
+              {% endfor %}
             </ul>
           </div>
 
