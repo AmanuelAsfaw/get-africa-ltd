@@ -1,4 +1,4 @@
-from turtle import title
+from turtle import position, title
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -74,6 +74,8 @@ class Service(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField(null=True, blank=True)
     image = models.ImageField(null=True, blank=True) 
+    icon_class = models.CharField(max_length=200, null=True, blank=True)
+    icon_class2 = models.CharField(max_length=200, null=True, blank=True)
 
     def __str__(self) -> str:
         return str(self.title)
@@ -82,8 +84,17 @@ class Testimonial(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField(null=True, blank=True)
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    user_name = models.CharField(max_length=200, default='Unknown')
     user_position = models.CharField(max_length=200)
     body = models.TextField(null=True, blank=True)
 
     def __str__(self) -> str:
         return str(self.title)
+
+class TeamMember(models.Model):
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    position = models.CharField(max_length=200)
+    description = models.TextField(null=True, blank=True)
+
+    def __str__(self) -> str:
+        return str(self.position +' : '+ self.user.username)
