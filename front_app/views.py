@@ -35,5 +35,18 @@ def product_detail(request, pk):
     }
     return render(request, "front_app/product-detail.html", context=context_data)
 
+def catagory_detail(request, pk):
+    catagories = Catagory.objects.all()
+    service_list = Service.objects.all()
+    catagory = Catagory.objects.get(pk=pk)
+    product_list = Product.objects.filter(catagory=catagory)
+    print(product_list[0].productimage_set.all())
+    context_data = {
+        'catagory_list': catagories,
+        'service_list': service_list,
+        'product_list': product_list
+    }
+    return render(request, "front_app/product-detail.html", context=context_data)
+
 def auth_page(request):
     return render(request,"front_app/auth.html",context={})
