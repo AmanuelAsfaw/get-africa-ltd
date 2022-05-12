@@ -121,7 +121,7 @@
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
 
-           <a href="auth-page" class="get-started-btn scrollto">SIGN-IN</a>
+           <a href="/auth-page" class="get-started-btn scrollto">SIGN-IN</a>
 
     </div>
 
@@ -212,6 +212,11 @@
             <div class="col-lg-8">
               <div class="portfolio-details-slider swiper">
                 <div class="swiper-wrapper align-items-center">
+                  {% if product.icon %}
+                    <div class="swiper-slide">
+                      <img src="{{ product.icon.url }}" alt="">
+                    </div>
+                  {% endif %}
                   {% for image in product.productimage_set.all %}
                     <div class="swiper-slide">
                       <img src="{{ image.image.url }}" alt="">
