@@ -27,6 +27,7 @@ def index(request):
         'team_member' : team_member,
         'testimonials' : testimonials,
         'product_list' : product_list,
+        'is_index': True,
     }
     return render(request,"front_app/index.html", context=index_data)
 
