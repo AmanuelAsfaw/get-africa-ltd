@@ -215,25 +215,41 @@ span
             </nav>
         </div>
         <div id='login-form'class='login-page'>
+          
+            <p style="color: red; text-align: center; background-color: black;">{{ error_message }}</p>
             <div class="form-box">
                 <div class='button-box'>
                     <div id='btn'></div>
                     <button  type='button'onclick='login()'class='toggle-btn'><h6 id="h">Log In</h6></button>
                     <button type='button'onclick='register()'class='toggle-btn'><h6 id="h">Register</h6></button>
                 </div>
-                <form id='login' class='input-group-login'>
-                    <input type='text'class='input-field'placeholder='Email Id' required >
-        <input type='password'class='input-field'placeholder='Enter Password' required>
-        <input type='checkbox'class='check-box'><span id='span'>Remember Password</span>
-        <button type='submit'class='submit-btn'>Log in</button>
-     </form>
-     <form id='register' class='input-group-register'>
-         <input type='text'class='input-field'placeholder='First Name/COMPANY NAME' required>
-         <input type='text'class='input-field'placeholder='Last Name ' required>
-         <input type='email'class='input-field'placeholder='Email Id' required>
-         <input type='password'class='input-field'placeholder='Enter Password' required>
-         <input type='password'class='input-field'placeholder='Confirm Password'  required>
-         <input type='checkbox'class='check-box'><span>I agree to the terms and conditions</span>
+                <form id='login' class='input-group-login' action="{% url 'login-request' %}" method="post">
+                  {% csrf_token %}
+                  <input type='text'class='input-field'placeholder='Username' name="username" required >
+                  <input type='password'class='input-field'placeholder='Enter Password' name="password" required>
+                  <input type='checkbox'class='check-box'><span id='span'>Remember Password</span>
+                  <button type='submit'class='submit-btn'>Log in</button>
+              </form>
+     <form id='register' class='input-group-register' action="register" method="post">
+        {% csrf_token %}
+         <input type='text'class='input-field'placeholder='First Name/COMPANY NAME' name="first_name" 
+         {% if register_error %}
+          value="{{register_data.first_name}}"
+         {% endif %}
+          required>
+         <input type='text'class='input-field'placeholder='Last Name ' name="last_name"
+         {% if register_error %}
+          value="{{register_data.last_name}}"
+         {% endif %}
+         required>
+         <input type='email'class='input-field'placeholder='Email Id' name="email"
+         {% if register_error %}
+          value="{{register_data.email}}"
+         {% endif %}
+         required>
+         <input type='password'class='input-field'placeholder='Enter Password' name="password" required>
+         <input type='password'class='input-field'placeholder='Confirm Password' name="confirm_password"  required>
+         <input type='checkbox'class='check-box' name="i_agree" required><span>I agree to the terms and conditions</span>
                     <button type='submit'class='submit-btn'>Register</button>
            </form>
             </div>

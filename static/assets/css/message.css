@@ -1,0 +1,41 @@
+.message-box {
+    border: 1px solid;
+    display: flex;
+    padding: auto;
+    padding: 10px;
+    justify-content: space-between;
+    border-radius: 1em;
+    border-left-width: 8px;
+}
+.success-message {
+    color: #28a745;
+    border-color: #28a745;
+    border-right-color: #28a745;
+    border-bottom-color: #28a745;
+    background-color: #212529;
+}
+.btn-green {
+    background-color: transparent;
+    border-color: rgb(16, 105, 16);
+    color: rgb(16, 105, 16);
+    border-radius: 1em;
+    border-width: medium;
+    font-size: large;
+    font-weight: bold;
+}
+.error-message {
+    color: red;
+    border-color: red;
+    border-right-color: red;
+    border-bottom-color: red;
+    background-color: #161212;
+}
+.btn-red {
+    background-color: transparent;
+    border-color: red;
+    color: red;
+    border-radius: 1em;
+    border-width: medium;
+    font-size: large;
+    font-weight: bold;
+}

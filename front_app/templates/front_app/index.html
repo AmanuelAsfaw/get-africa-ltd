@@ -31,6 +31,7 @@
   <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
 
   <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/css/message.css' %}" rel="stylesheet">
 
  
 </head>
@@ -66,12 +67,30 @@
           <li><a class="nav-link scrollto " href="#portfolio">Products</a></li>
           <li><a class="nav-link scrollto" href="#team">Team</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
+        </ul>        
+        <i class="bi bi-list mobile-nav-toggle" onclick=""></i>
       </nav><!-- .navbar -->
-
+        {% if user.is_authenticated %}
+          <nav id="right-navbar" class="navbar">
+            <ul>
+              <li class="dropdown"><a style="color: #fff;"><span>Hi {{ user.first_name }}!</span> <i class="bi bi-chevron-down"></i></a>
+                <ul>
+                  <li><a href="profile"></a>Profile</li>
+                  <li><a href="logout"></a>
+                    <form method="post" action="{% url 'logout-request' %}">
+                      {% csrf_token %}
+                      <button type='submit' style="border: none; background-color: transparent;">Log in</button>
+                    </form>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+          
+        {% else %}
            <a href="auth-page" class="get-started-btn scrollto">SIGN-IN</a>
-      ><!--<a href="#about" class="get-started-btn scrollto">Get Started</a>-->
+        {% endif %}
+      <!--<a href="#about" class="get-started-btn scrollto">Get Started</a>-->
 
     </div>
   </header><!-- End Header -->
@@ -79,6 +98,16 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center justify-content-center">
     <div class="container" data-aos="fade-up">
+
+      {% for msg in messages %}
+        <div class="message-box success-message" >
+          <p>{{ msg }}</p>
+          <div>
+          <button class="btn-green">X</button>
+          </div>
+        </div>
+      {% endfor %}
+      
 
       <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
         <div class="col-xl-6 col-lg-8">
