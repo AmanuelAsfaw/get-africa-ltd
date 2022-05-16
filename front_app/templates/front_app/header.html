@@ -1,0 +1,60 @@
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top ">
+    <div class="container d-flex align-items-center justify-content-lg-between">
+      
+      <h1 class="logo me-auto me-lg-0"><a href="/">GET AFRICA LTD <span>.</span></a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto active" href="/">Home</a></li>
+          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link scrollto" href="#services">Services</a></li>
+          <li class="dropdown"><a href="#"><span>Catagory</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              {% for catagory in catagory_list %}
+                <li class="dropdown"><a href="/catagory-detail/{{catagory.id}}"><span>GET {{ catagory.title }} </span> <i class="bi bi-chevron-right"></i></a>
+                  <ul>
+                    {% for product in catagory.product_set.all %}
+                      <li><a href="/product-detail/{{product.id}}">{{ product.title }}</a></li>
+                    {% endfor %}
+                  </ul>
+                </li>
+              {% endfor %}
+            </ul>
+          </li>
+          {% if is_index %}
+              <li><a class="nav-link scrollto " href="#portfolio">Products</a></li>
+          {% endif %}
+          <li><a class="nav-link scrollto" href="#team">Team</a></li>
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+        </ul>        
+        <i class="bi bi-list mobile-nav-toggle" onclick=""></i>
+      </nav><!-- .navbar -->
+        {% if user.is_authenticated %}
+          <nav id="right-navbar" class="navbar">
+            <ul>
+              <li class="dropdown"><a style="color: #fff;"><span>Hi {{ user.first_name }}!</span> <i class="bi bi-chevron-down"></i></a>
+                <ul>
+                  <li><a href="/profile"></a>Profile</li>
+                  <li><a></a>
+                    <form method="post" action="{% url 'logout-request' %}">
+                      {% csrf_token %}
+                      <button type='submit' style="border: none; background-color: transparent;">Log in</button>
+                    </form>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+          
+        {% else %}
+           <a href="/auth-page" class="get-started-btn scrollto">SIGN-IN</a>
+        {% endif %}
+      <!--<a href="#about" class="get-started-btn scrollto">Get Started</a>-->
+
+    </div>
+  </header><!-- End Header -->
+  
