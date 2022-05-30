@@ -61,7 +61,6 @@ soupsieve==2.3.1
 sqlparse==0.4.2
 tornado==6.1
 traitlets==5.1.1
-twint==2.1.21
 typing_extensions==4.0.1
 urllib3==1.26.7
 virtualenv==20.13.3
