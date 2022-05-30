@@ -1,4 +1,5 @@
 .message-box {
+    min-width: 311px;
     border: 1px solid;
     display: flex;
     padding: auto;
@@ -76,4 +77,31 @@
 .message-sender {
     text-align: end;
     padding-right: 8px;
+}
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;    
+    column-gap: 25px; 
+    row-gap: 30px;
+}
+.form-row input {
+    padding: 10px;
+    width: 100%;   
+}
+.form-row-input {
+    width: 100%;    
+    border-radius: 8px;
+    border: 1px solid;
+}
+.profile-form {
+    row-gap: 30px;
+    display: flex;
+    flex-direction: column;
+}
+.profile-form-btn {
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 5px;
+    font-size: x-large;
 }

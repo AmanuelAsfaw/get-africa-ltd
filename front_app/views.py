@@ -178,3 +178,60 @@ def messages_page(request):
         'message_list' : messages_list
     }
     return render(request, "front_app/messages.html", context=context_data)
+
+def profile_page(request):
+    if not request.user.is_authenticated:
+        return redirect('auth-page')
+    catagories = Catagory.objects.all()
+    service_list = Service.objects.all()
+    user = User.objects.get(email__exact=request.user.email)
+
+    context_data = {
+        'catagory_list': catagories,
+        'service_list': service_list,
+        'user' : {
+            'username' : user.username,
+            'first_name' : user.first_name,
+            'last_name' : user.last_name,
+            'email' : user.email
+        }
+    }
+    return render(request, 'front_app/profile.html', context_data)
+
+def update_profile(request):
+    if not request.user.is_authenticated:
+        return redirect('auth-page')
+        
+    if  request.method == 'POST':
+        username = request.POST['username']
+        email = request.POST['email']
+        lastname = request.POST['lastname']
+        firstname = request.POST['firstname']
+        if username != None and lastname != None and email != None and firstname != None :
+            current_user = request.user
+            username_user = User.objects.filter(username=username)
+            print(username_user)
+            if len(username_user) > 0 and not current_user.username == username:
+                messages.error(request, "Username not unique." )
+                return redirect('profile-page')
+            
+            email_user = User.objects.filter(email=email)
+            if len(email_user) > 0 and not current_user.email == email:
+                messages.error(request, "Email not unique." )
+                return redirect('profile-page')
+            
+            user = User.objects.get(pk=current_user.id)
+            user.username = username
+            user.first_name = firstname
+            user.last_name = lastname
+            user.email = email
+            user.save()
+            messages.success(request, "Profile update Succed." )
+            return redirect('profile-page')
+        else:
+            messages.error(request, "All field are required." )
+            return redirect('profile-page')
+    return redirect('index')
+    
+
+    

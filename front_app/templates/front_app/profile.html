@@ -2,18 +2,41 @@
 {% load static %}
 {% block body_content %}
 <section id="messages-list" class="messages-list">
-    <h1>Messages You send for us.</h1>
     
-    {% for msg in message_list %}
-        <div class="client-message">
-            <h5 class="message-subject">{{msg.subject}}</h5>
-            <p>{{msg.body}}</p>
-            <div class="message-sender">{{msg.sender.email}}</div>
+    {% for msg in messages %}
+        <div class="message-box success-message" >
+        <p>{{ msg }}</p>
+        <div>
+        <button class="btn-green">X</button>
+        </div>
         </div>
     {% endfor %}
-    {% if not message_list %}
-    <div class="no-message-found">No Message Found</div>
-    {% endif %}
+  
+    <h1 style="
+        margin-top: 30px;
+        margin-bottom: 30px;">Update your profile</h1>
+    <form class="profile-form" action="{% url 'update-profile' %}" method="post">
+        {% csrf_token %}
+        <div class="form-row">
+            <div class="form-row-input">
+                <input name="username" placeholder="User-Name" value="{{user.username}}" required/>
+            </div>
+            <div class="form-row-input">
+                <input name="firstname" placeholder="First-Name" value="{{user.first_name}}" required/>
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-row-input">
+                <input name="lastname" placeholder="Last-Name" value="{{user.last_name}}"/>
+            </div>
+            <div class="form-row-input">
+                <input name="email" placeholder="Email" value="{{user.email}}" required/>
+            </div>
+        </div>
+       
+        <button class="profile-form-btn" type="submit">Save</button>
+    </form>
 
 </section>
 {% endblock body_content %}

@@ -12,4 +12,6 @@ urlpatterns = [
     path('logout_request', views.logout_view, name='logout-request'),
     path('send_message', views.send_message, name='send-message'),
     path('messages', views.messages_page, name='messages-page'),
+    path('profile', views.profile_page, name='profile-page'),
+    path('update-profile', views.update_profile, name='update-profile'),
 ]
