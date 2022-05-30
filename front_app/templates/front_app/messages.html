@@ -1,0 +1,19 @@
+{% extends 'front_app/base.html' %}
+{% load static %}
+{% block body_content %}
+<section id="messages-list" class="messages-list">
+    <h1>Messages You send for us.</h1>
+    
+    {% for msg in message_list %}
+        <div class="client-message">
+            <h5 class="message-subject">{{msg.subject}}</h5>
+            <p>{{msg.body}}</p>
+            <div class="message-sender">{{msg.sender.email}}</div>
+        </div>
+    {% endfor %}
+    {% if not message_list %}
+    <div class="no-message-found">No Message Found</div>
+    {% endif %}
+
+</section>
+{% endblock body_content %}

@@ -10,4 +10,6 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('login_request', views.login_view, name='login-request'),
     path('logout_request', views.logout_view, name='logout-request'),
+    path('send_message', views.send_message, name='send-message'),
+    path('messages', views.messages_page, name='messages-page'),
 ]
