@@ -267,8 +267,22 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 0;
   transition: 0.5s;
 }
-
+.for-mobile-only {
+  display: none;
+  visibility: hidden;
+}
+.for-mobile-only form button {
+  padding-left: 5px;
+  color: black;
+}
 @media (max-width: 991px) {
+  .right-side {
+    display: none;
+  }
+  .for-mobile-only {
+    display: block;
+    visibility: visible;
+  }
   .mobile-nav-toggle {
     display: block;
   }

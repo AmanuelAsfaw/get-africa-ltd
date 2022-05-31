@@ -30,20 +30,28 @@
           {% endif %}
           <li><a class="nav-link scrollto" href="#team">Team</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          <li><a class="nav-link scrollto for-mobile-only" href="/profile">Profile</a></li>
+          <li><a class="nav-link scrollto for-mobile-only" href="/messages">Messages</a></li>
+          <li class="nav-link scrollto for-mobile-only">
+            <form method="post" action="{% url 'logout-request' %}">
+              {% csrf_token %}
+              <button type='submit' style="border: none; background-color: transparent; color: black; padding-left: 5px;">Logout</button>
+            </form>
+          </li>
         </ul>        
         <i class="bi bi-list mobile-nav-toggle" onclick=""></i>
       </nav><!-- .navbar -->
         {% if user.is_authenticated %}
-          <nav id="right-navbar" class="navbar">
+          <nav class="right-side">
             <ul>
-              <li class="dropdown"><a style="color: #fff;"><span>Hi {{ user.first_name }}!</span> <i class="bi bi-chevron-down"></i></a>
-                <ul>
-                  <li><a href="/profile"></a>Profile</li>
-                  <li><a href="/messages"></a>Messages</li>
+              <li class="right-side-li"><a>Hi {{ user.first_name }}!<i class="bi bi-chevron-down"></i></a>
+                <ul class="dropdown">
+                  <li><a href="/profile">Profile</a></li>
+                  <li><a href="/messages">Messages</a></li>
                   <li><a></a>
                     <form method="post" action="{% url 'logout-request' %}">
                       {% csrf_token %}
-                      <button type='submit' style="border: none; background-color: transparent;">Log in</button>
+                      <button type='submit' style="border: none; background-color: transparent; color: #111; padding-left: 0px;">Logout</button>
                     </form>
                   </li>
                 </ul>
