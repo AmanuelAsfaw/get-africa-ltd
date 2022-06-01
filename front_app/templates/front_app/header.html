@@ -35,13 +35,13 @@
           <li class="nav-link scrollto for-mobile-only">
             <form method="post" action="{% url 'logout-request' %}">
               {% csrf_token %}
-              <button type='submit' style="border: none; background-color: transparent; color: #151515; padding-left: 5px;">Logout</button>
+              <button type='submit' style="border: none; background-color: transparent; color: #151515; padding-left: 5px;font-size: 15px;font-weight: 600;">Logout</button>
             </form>
           </li>
         </ul>        
         <i class="bi bi-list mobile-nav-toggle" onclick=""></i>
       </nav><!-- .navbar -->
-        {% if user.is_authenticated %}
+        {% if user.is_authenticated  or is_authenticated %}
           <nav class="right-side">
             <ul>
               <li class="right-side-li"><a>Hi {{ user.first_name }}!<i class="bi bi-chevron-down"></i></a>

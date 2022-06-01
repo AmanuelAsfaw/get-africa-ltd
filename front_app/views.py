@@ -177,7 +177,8 @@ def messages_page(request):
     context_data = {
         'catagory_list': catagories,
         'service_list': service_list,
-        'message_list' : messages_list
+        'message_list' : messages_list,
+        'is_authenticated' : True
     }
     return render(request, "front_app/messages.html", context=context_data)
 
@@ -196,7 +197,8 @@ def profile_page(request):
             'first_name' : user.first_name,
             'last_name' : user.last_name,
             'email' : user.email
-        }
+        },
+        'is_authenticated' : True
     }
     return render(request, 'front_app/profile.html', context_data)
 
@@ -235,5 +237,5 @@ def update_profile(request):
             return redirect('profile-page')
     return redirect('index')
     
-
-    
+def page_not_found_view(request, exception):
+    return render(request, 'front_app/404.html', status=404)
