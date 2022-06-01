@@ -57,6 +57,9 @@ def catagory_detail(request, pk):
     return render(request, "front_app/product-detail.html", context=context_data)
 
 def auth_page(request):
+    if request.user.is_authenticated:
+        return redirect('index')
+        
     service_list = Service.objects.all()
     return render(request,"front_app/auth.html",context={
         'service_list': service_list,

@@ -113,15 +113,22 @@
     list-style: none;
 }
 .right-side .dropdown {
-    margin-top: 10px;
     margin-right: 20px;
     padding: 15px;
     position: absolute;
     background-color: white;
     color: black;
-    right: 40px;
     visibility: hidden;
     display: none;
+}
+@media (max-width: 1270px) {
+    .right-side .dropdown {
+        right: 40px;
+        margin-right: 20px;
+    }
+    .right-side {
+        margin-right: 20px;
+    }
 }
 .right-side .dropdown a{
     color: black;
