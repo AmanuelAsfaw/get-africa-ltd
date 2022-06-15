@@ -76,6 +76,7 @@ def register(request):
         if first_name != None and last_name != None and email != None and password != None and confirm_password != None :
             if password == confirm_password:
                 user = User.objects.create(
+                    username = email,
                     first_name = first_name,
                     last_name = last_name,
                     email = email,
