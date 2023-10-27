@@ -22,7 +22,8 @@ from django.conf.urls import (handler400, handler403, handler404, handler500)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('front_app.urls'), name='front_app')
+    path('getafrica',include('front_app.urls'), name='front_app'),
+    path('',include('opal_app.urls'), name='opal_app')
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 if settings.DEBUG:

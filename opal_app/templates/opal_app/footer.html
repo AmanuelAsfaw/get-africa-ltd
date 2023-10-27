@@ -1,0 +1,74 @@
+
+<section class="u-clearfix u-image u-shading u-section-7" id="sec-018f" data-image-width="784" data-image-height="720">
+    <div class="u-clearfix u-sheet u-valign-top u-sheet-1">
+      <div class="data-layout-selected nahom1 u-clearfix u-expanded-width u-gutter-0 u-layout-wrap u-layout-wrap-1">
+        <div class="u-layout">
+          <div class="u-layout-row">
+            <div class="u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-1">
+              <div class="u-container-layout u-valign-middle u-container-layout-1">
+                <h2 class="u-text u-text-1">Contact Us</h2>
+                <p class="u-text u-text-body-alt-color u-text-2">MISSION&nbsp;<span style="font-size: 1.5rem;">
+                    <br>our comapany is known for its gem stone export throughout the world and our mission is to create the best emotional connection to our customers through the providing of the finest opals&nbsp;<br>
+                    <br>
+                    <br>PHONE:-+25193991448<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;:-+13892345564
+                  </span>
+                  <br>
+                  <br>E-MAIL:-ghiwotnahom102@gmail.com<br>
+                  <br>
+                </p>
+                <a href="" class="u-active-white u-border-2 u-border-active-white u-border-hover-white u-border-white u-btn u-btn-round u-button-style u-hover-white u-none u-radius-50 u-text-active-black u-text-hover-black u-btn-1">Contact Us</a>
+              </div>
+            </div>
+            <div class="u-container-style u-layout-cell u-right-cell u-size-30 u-layout-cell-2" data-animation-name="bounceIn" data-animation-duration="1000" data-animation-direction="" data-animation-delay="250">
+              <div class="u-container-layout u-valign-middle u-container-layout-2">
+                <div class="u-form u-form-1">
+                  <form action="{% url 'send-message' %}" method="post" class="u-clearfix u-form-spacing-30 u-form-vertical u-inner-form" style="padding: 10px" source="email" name="form">
+                    {% csrf_token %}
+                    {% if user.is_authenticated %}
+
+                      <div class="u-form-email u-form-group u-form-partition-factor-2">
+                        <label for="email-319a" class="u-label u-text-body-alt-color u-label-1">Email</label>
+                        <input type="email" placeholder="Enter a valid email address" id="email-319a" name="email" value={{user.email}} class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-white u-input u-input-rectangle" required="">
+                      </div>
+                      <div class="u-form-group u-form-name u-form-partition-factor-2">
+                        <label for="name-319a" class="u-label u-text-body-alt-color u-label-2">Name</label>
+                        <input type="text" placeholder="Enter your Name" id="name-319a" name="name" value={{user.first_name}} class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-white u-input u-input-rectangle" required="">
+                      </div>
+                    {% else %}
+                      <div class="u-form-email u-form-group u-form-partition-factor-2">
+                        <label for="email-319a" class="u-label u-text-body-alt-color u-label-1">Email</label>
+                        <input type="email" placeholder="Enter a valid email address" id="email-319a" name="email" class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-white u-input u-input-rectangle" required="">
+                      </div>
+                      <div class="u-form-group u-form-name u-form-partition-factor-2">
+                        <label for="name-319a" class="u-label u-text-body-alt-color u-label-2">Name</label>
+                        <input type="text" placeholder="Enter your Name" id="name-319a" name="name" class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-white u-input u-input-rectangle" required="">
+                      </div>
+                      
+                    {% endif %}
+
+                    <div class="u-form-address u-form-group u-form-group-3">
+                      <label for="address-452f" class="u-label u-text-body-alt-color u-label-3">Address</label>
+                      <input type="text" placeholder="Enter your address" id="address-452f" name="address" class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-white u-input u-input-rectangle" required="">
+                    </div>
+                    <div class="u-form-group u-form-message">
+                      <label for="message-319a" class="u-label u-text-body-alt-color u-label-4">Message</label>
+                      <textarea placeholder="Enter your message" rows="4" cols="50" id="message-319a" name="message" class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-white u-input u-input-rectangle" required=""></textarea>
+                    </div>
+                    <div class="u-align-left u-form-group u-form-submit">
+                      <a href="#" class="u-active-white u-border-none u-btn u-btn-round u-btn-submit u-button-style u-hover-white u-palette-3-dark-2 u-radius-50 u-btn-2">Submit</a>
+                      <input type="submit" value="submit" class="u-form-control-hidden">
+                    </div>
+                    <div class="u-form-send-message u-form-send-success"> Thank you! Your message has been sent. </div>
+                    <div class="u-form-send-error u-form-send-message"> Unable to send your message. Please fix errors then try again. </div>
+                    <input type="hidden" value="" name="recaptchaResponse">
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+  
+  

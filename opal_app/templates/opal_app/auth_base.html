@@ -1,0 +1,182 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Get AFRICA LTD ">
+  <meta name="keywords" content=" ">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">  
+  <link href="{% static 'opal_assets/images/Capture1.png' %}" rel="shortcut icon" type="image/png">
+
+    <title>
+        {% block title %}
+            Opal-Site
+        {% endblock title%}
+    </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  {% block script_content %} {% endblock script_content %}
+
+  {% include 'opal_app/include/static_css.html' %}
+
+  <style>
+    .full-page
+   {
+       height: 100%;
+       width: 100%;
+       background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(static/assets/img/testimonials-bg.jpg);
+       background-position: center;
+       background-size: cover;
+       position: relative;
+   }
+   .navbar
+   {
+       display: flex;
+       align-items: center;
+       padding: 20px;
+       padding-left: 50px;
+       padding-right: 30px;
+       padding-top: 120px;
+   }
+   
+   
+   .form-box
+   {
+       width:390px;
+       height:600px;
+       position:relative;
+       margin:2% auto;
+       background:rgba(0,0,0,0.3);
+       padding:10px;
+       overflow: hidden;
+   }
+   .button-box
+   {
+       width:220px;
+       margin:45px auto;
+       position:relative;
+       box-shadow: 0 0 20px 9px #ff61241f;
+       border-radius: 30px;
+   }
+   .toggle-btn
+   {
+       padding:4px 26px;
+       cursor:pointer;
+       background:transparent;
+       border:0;
+       outline: none;
+       position: relative;
+   }
+   #btn
+   {
+       top: 0;
+       left:0;
+       position: absolute;
+       width: 110px;
+       height: 100%;
+       background: #F3C693;
+       border-radius: 30px;
+       transition: .5s;
+   }
+   .input-group-login
+   {
+       top: 150px;
+       position:absolute;
+       width:280px;
+       transition:.5s;
+   }
+   .input-group-register
+   {
+       top: 110px;
+       position:absolute;
+       width:280px;
+       transition:.5s;
+   }
+   .input-field
+   {
+       width: 100%;
+       padding:10px 10px;
+       margin:5px 0;
+       border-left:0;
+       border-top:0;
+       border-right:0;
+       border-bottom: 1px solid #999;
+       outline:none;
+       background: transparent;
+   }
+   .submit-btn
+   {
+       width: 85%;
+       padding: 10px 30px;
+       cursor: pointer;
+       display: block;
+       margin: auto;
+       background: #F3C693;
+       border: 0;
+       outline: none;
+       border-radius: 30px;
+   }
+   .check-box
+   {
+       margin: 30px 10px 34px 0;
+   }
+   span
+   {
+       color:white;
+       font-size:12px;
+       bottom:75px;
+       position:absolute;
+   }
+   #login
+   {
+       left:50px;
+   }
+   #login input
+   {
+       color:white;
+       font-size:15;
+   }
+   #register
+   {
+       left:450px;
+   }
+   #register input
+   {
+       color:white;
+       font-size: 15;
+   }
+   ::-webkit-input-placeholder {
+     text-align: left;
+     color: white;
+     font-weight: lighter;
+   }
+   #h{
+       color: white;
+   }
+   
+   
+   
+   
+   </style>
+   
+</head>
+
+<body data-path-to-root="/" class="u-body u-xl-mode" data-lang="en">
+
+  {% include 'opal_app/header.html' %}
+
+  {% block body_content %} {% endblock body_content %}
+  
+  {% include 'opal_app/footer.html' %}
+  
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  {% include 'opal_app/include/js_files.html'%}
+
+</body>
+
+</html>

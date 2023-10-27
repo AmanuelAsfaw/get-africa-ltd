@@ -1,0 +1,146 @@
+{% extends 'opal_app/base.html' %}
+{% load static %}
+{% block body_content %}
+
+
+<section class="skrollable skrollable-between u-align-center u-clearfix u-image u-shading u-section-1" src="/static/opal_assets/images/gkio.jpg" id="carousel_74d8" data-image-width="359" data-image-height="254">
+    <div class="u-clearfix u-sheet u-sheet-1">
+      <h1 class="u-text u-text-default u-text-1">GEM STONES</h1>
+      <h3 class="u-text u-text-2"> Amplifies feelings of emotional attachment and releases beauty</h3>
+      <div class="data-layout-selected u-clearfix u-layout-custom-sm u-layout-custom-xs u-layout-wrap u-layout-wrap-1">
+        <div class="u-layout">
+          <div class="u-layout-row">
+            <div class="u-align-right u-container-align-right-sm u-container-align-right-xs u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-1" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="250">
+              <div class="u-container-layout u-valign-top u-container-layout-1">
+                <a href="tel:+251939911448" class="u-align-right-sm u-align-right-xs u-black u-border-2 u-border-palette-2-base u-btn u-btn-round u-button-style u-radius-50 u-btn-1"> REACH US</a>
+              </div>
+            </div>
+            <div class="u-align-left u-container-align-left-sm u-container-align-left-xs u-container-style u-layout-cell u-right-cell u-size-30 u-layout-cell-2" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="250">
+              <div class="u-container-layout u-valign-top u-container-layout-2">
+                <a href="" class="u-active-white u-align-left-sm u-align-left-xs u-border-2 u-border-active-white u-border-grey-5 u-border-hover-white u-btn u-btn-round u-button-style u-hover-white u-none u-radius-50 u-text-active-black u-text-hover-black u-btn-2"><span class="u-icon"></span>&nbsp;GALLER
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+<section class="u-clearfix u-section-2" id="sec-2808">
+    <div class="u-clearfix u-sheet u-sheet-1">
+      <div class="u-expanded-width u-list u-list-1">
+        <div class="u-repeater u-repeater-1">
+          
+          {% for product in opal_products %}
+                
+            <div class="u-container-style u-list-item u-repeater-item">
+              <div class="u-container-layout u-similar-container u-container-layout-1">
+                <img alt="" class="u-expanded-width u-image u-image-default u-image-1" data-image-width="686" data-image-height="637" src="{{ product.icon.url}}">
+                <h3 class="u-text u-text-default u-text-1">{{ product.title }}</h3>
+                <p class="u-text u-text-2">{{ product.description }}</p>
+              </div>
+            </div>
+
+          {% endfor %}
+    
+
+        </div>
+      </div>
+    </div>
+</section>
+
+<section class="u-clearfix u-section-3" id="sec-cf32">
+    <div class="u-clearfix u-sheet u-sheet-1"></div>
+</section>
+
+<section class="u-align-center u-clearfix u-container-align-center u-section-4" id="sec-237f">
+    <div class="u-clearfix u-sheet u-sheet-1">
+      <h2 class="u-align-center u-text u-text-default u-text-1"> OPAL COLLECTIONS</h2>
+      <p class="u-align-center u-text u-text-2">we export the finest opals for the international market</p>
+      <div class="u-expanded-width u-gallery u-layout-grid u-lightbox u-show-text-on-hover u-gallery-1">
+        <div class="u-gallery-inner u-gallery-inner-1">
+
+                    
+          {% for collection in opal_collections %}
+             
+            <div class="u-effect-fade u-effect-hover-zoom u-gallery-item">
+              <div class="u-back-slide" data-image-width="794" data-image-height="794">
+                <img class="u-back-image u-expanded" src="{{ collection.icon.url}}" alt="Sample Headline">
+              </div>
+              <div class="u-over-slide u-shading u-over-slide-1">
+                <h3 class="u-gallery-heading">{{ collection.title }}</h3>
+                <p class="u-gallery-text">{{ collection.description }}</p>
+              </div>
+            </div>
+            
+          {% endfor %}
+    
+        </div>
+      </div>
+      <p class="u-align-center u-text u-text-3">OUR&nbsp; FINEST EXPORTED&nbsp; OPALS&nbsp;</p>
+      <a href="https:" class="u-align-center u-black u-border-2 u-border-palette-2-base u-btn u-btn-round u-button-style u-radius-50 u-btn-1">more photos</a>
+    </div>
+</section>
+
+<section class="u-align-center u-black u-clearfix u-container-align-center u-section-5" id="sec-185a">  
+    <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+      <h2 class="u-align-center u-text u-text-default u-text-1" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="0"> Find THE FINEST GEM STONES</h2>
+      <p class="u-align-center u-text u-text-2" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="250"> OUR COMAPNY HAS EXPORTED GEM STONES THROUGHT EUROUPE ,ASIA AND MIDDLE EAST FOR EXBITHIONS AND JEWELLRY BROKERS&nbsp;</p>
+      <div class="u-expanded-width u-list u-list-1">
+        <div class="u-repeater u-repeater-1">
+
+             
+          {% for game_stone in game_stones %}
+           
+            <div class="u-align-center u-container-align-center u-container-style u-image u-list-item u-repeater-item u-shading u-shape-rectangle u-image-1" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500" data-image-width="1250" data-image-height="1250"
+            style='background-image: linear-gradient(0deg, rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url("{{game_stone.icon.url}}");'
+            >
+              <div class="u-container-layout u-similar-container u-valign-bottom u-container-layout-1">
+                <div class="u-black u-container-style u-expanded-width u-group u-opacity u-opacity-50 u-group-1">
+                  <div class="u-container-layout u-container-layout-2">
+                    <h4 class="u-align-center u-text u-text-3" data-animation-name="customAnimationIn" data-animation-duration="1250" data-animation-delay="500">{{ game_stone.title }}&nbsp;</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          {% endfor %}
+    
+        </div>
+      </div>
+      <p class="u-align-center u-text u-text-default u-text-9" data-animation-name="customAnimationIn" data-animation-duration="1250" data-animation-delay="500">Image from <a href="https://www.freepik.com" class="u-border-1 u-border-active-palette-2-light-2 u-border-hover-palette-2-light-2 u-border-no-left u-border-no-right u-border-no-top u-border-white u-bottom-left-radius-0 u-bottom-right-radius-0 u-btn u-button-link u-button-style u-none u-radius-0 u-text-body-alt-color u-top-left-radius-0 u-top-right-radius-0 u-btn-1" target="_blank">our&nbsp; teams&nbsp;</a>
+      </p>
+    </div>
+</section>
+
+<section class="u-align-center u-clearfix u-container-align-center u-section-6" id="sec-d633">
+    <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+      <h2 class="u-align-center u-text u-text-default u-text-1"> OUR RECENT EXPORTED OPALS&nbsp;</h2>
+      <div class="u-expanded-width u-list u-list-1">
+        <div class="u-repeater u-repeater-1">
+          
+          {% for exported_opal in exported_opals %}
+           
+            <div class="u-align-center u-container-align-center u-container-style u-list-item u-repeater-item u-shape-rectangle u-list-item-1">
+              <div class="u-container-layout u-similar-container u-container-layout-1">
+                <img alt="" class="u-expanded-width u-image u-image-default u-image-1" data-image-width="1000" data-image-height="1000" src="{{exported_opal.icon.url}}">
+                <div class="u-align-center u-black u-container-align-center u-container-style u-group u-group-1">
+                  <div class="u-container-layout u-valign-middle u-container-layout-2">
+                    <h4 class="u-align-center u-text u-text-default u-text-2"> {{exported_opal.title}}</h4>
+                    <p class="u-align-center u-text u-text-3"> {{exported_opal.site}}</p>
+                  </div>
+                </div>
+                <p class="u-align-center u-text u-text-4">{{exported_opal.exported_to}}&nbsp;</p>
+              </div>
+            </div>
+            
+          {% endfor %}
+    
+        </div>
+      </div>
+    </div>
+</section>
+  
+
+{% endblock body_content %}

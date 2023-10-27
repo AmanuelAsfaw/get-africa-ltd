@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'front_app.apps.FrontAppConfig',
-    # 'front_app',
+    'opal_app.apps.OpalAppConfig',
+    # 'opal_app',
 ]
 
 MIDDLEWARE = [
