@@ -1,6 +1,7 @@
 import email
+import json
 from django.contrib import messages
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import redirect, render
 
 from front_app.models import Catagory, Message, Product, Service, TeamMember, Testimonial
@@ -127,13 +128,17 @@ def logout_view(request):
     return redirect('index')
 
 def send_message(request):
+    print(request.body.decode('ascii'))
+    str_body = request.body.decode('ascii')
+    json_body = json.loads(str_body)
+    print(json_body)
     if not request.user.is_authenticated:
         return HttpResponse('You must be login.')
     if request.method == 'POST':
-        name = request.POST['name']
-        email = request.POST['email']
-        address = request.POST['address']
-        body = request.POST['message']
+        name = json_body['name']
+        email = json_body['email']
+        address = json_body['address']
+        body = json_body['message']
         if name != None and address != None and email != None and body != None :
             
             OpalMessage.objects.create(
@@ -144,7 +149,8 @@ def send_message(request):
             )
             messages.success(request, "Message send successful." )
         
-            # return HttpResponse('OK')
+            return HttpResponse('OK')
+            return HttpResponseRedirect('/messages')
             return redirect('messages-page')
 
         else:
@@ -157,7 +163,7 @@ def messages_page(request):
         return redirect('auth-page')
     user = User.objects.get(email__exact=request.user.email)
     print(request.user.email)
-    messages_list = Message.objects.filter(email=request.user.email)
+    messages_list = OpalMessage.objects.filter(email=request.user.email)
     print(messages_list.count())
     context_data = {
         'message_list' : messages_list,
