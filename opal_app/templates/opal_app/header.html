@@ -16,10 +16,16 @@
 </li><li class="u-nav-item"><a href="#sec-018f" class="u-active-palette-1-base u-border-active-grey-30 u-border-hover-grey-30 u-border-no-bottom u-border-no-left u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white" style="padding: 10px 20px;">ABOUT-US</a>
 </li><li class="u-nav-item"><a href="#sec-018f" class="u-active-palette-1-base u-border-active-grey-30 u-border-hover-grey-30 u-border-no-bottom u-border-no-left u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white" style="padding: 10px 20px;">CONTACT</a>
 </li>
-{% if user.is_superuser %}
-  <li class="u-nav-item"><a href="admin" class="u-active-palette-1-base u-border-active-grey-30 u-border-hover-grey-30 u-border-no-bottom u-border-no-left u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white" style="padding: 10px 20px;">Admin-Panel</a></li>
-{% elif user.is_authenticated %}
-  <li class="u-nav-item"><a href="/messages" class="u-button-style u-nav-link">MESSAGE</a></li>
+{% if user.is_authenticated %}
+  {% if user.is_staff %}
+    <li class="u-nav-item">
+      <a href="/admin" class="u-button-style u-nav-link">Admin-Panel</a>
+    </li>
+  {% else %}
+    <li class="u-nav-item">
+      <a href="/messages" class="u-button-style u-nav-link">MESSAGE</a>
+    </li>
+  {% endif %}
 {% endif %}
 
 {% if not user.is_authenticated%}
@@ -49,7 +55,7 @@
 </li><li class="u-nav-item"><a href="#sec-018f" class="u-button-style u-nav-link">CONTACT</a>
 </li>
 
-{% if user.is_superuser %}
+{% if user.is_staff %}
   <li class="u-nav-item"><a href="/admin" class="u-button-style u-nav-link">ADMIN-PANEL</a></li>
 {% elif user.is_authenticated %}
   <li class="u-nav-item"><a href="/messages" class="u-button-style u-nav-link">MESSAGE</a></li>

@@ -1,7 +1,7 @@
 import email
 import json
 from django.contrib import messages
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import redirect, render
 
 from front_app.models import Catagory, Message, Product, Service, TeamMember, Testimonial
@@ -148,8 +148,10 @@ def send_message(request):
                 body = body
             )
             messages.success(request, "Message send successful." )
+            return JsonResponse({
+                'status': 'OK',
+            }, safe=False, status=200)
         
-            return HttpResponse('OK')
             return HttpResponseRedirect('/messages')
             return redirect('messages-page')
 

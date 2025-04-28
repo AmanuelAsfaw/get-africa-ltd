@@ -96,9 +96,9 @@
     })
   }).then(response => {
       console.log(response);
-      if(response.statusText == 'OK'){
+      if(response.status == 200){
         console.log(response.statusText);
-        window.location.replace("messages");
+        window.location.replace("/messages");
       }
     }).catch().finally()    
   }
