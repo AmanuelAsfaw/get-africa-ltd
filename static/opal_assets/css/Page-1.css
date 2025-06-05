@@ -283,7 +283,7 @@
     height: 222px;
   }
 }.u-section-3 .u-sheet-1 {
-  min-height: 214px;
+  min-height: 5px;
 }.u-section-4 .u-sheet-1 {
   min-height: 1110px;
 }
@@ -826,7 +826,7 @@
   }
 
   .u-section-5 .u-text-1 {
-    margin-top: -160px;
+    margin-top: 10px;
   }
 
   .u-section-5 .u-text-2 {
@@ -1714,4 +1714,8 @@
   .u-section-7 .u-container-layout-2 {
     padding-left: 10px;
   }
+}
+
+.u-section-2 {
+  margin-bottom: -100px;
 }

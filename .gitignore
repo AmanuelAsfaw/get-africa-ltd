@@ -1,1 +1,5 @@
 db.sqlite3
+*.pyc
+*.cpython-37.pyc
+front_app/__pycache__/*.cpython-37.pyc
+.gitignore

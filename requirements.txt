@@ -20,7 +20,6 @@ decorator==5.1.0
 distlib==0.3.4
 dj-database-url==0.5.0
 Django==3.2.11
-django-heroku==0.3.1
 elasticsearch==7.16.0
 entrypoints==0.3
 fake-useragent==0.1.11
@@ -46,8 +45,7 @@ parso==0.8.3
 pickleshare==0.7.5
 Pillow==9.0.0
 platformdirs==2.5.1
-prompt-toolkit==3.0.24
-psycopg2==2.9.3
+prompt-toolkit==3.0.24s
 pycares==4.1.2
 pycparser==2.21
 Pygments==2.10.0
@@ -55,7 +53,7 @@ PySocks==1.7.1
 python-dateutil==2.8.2
 python-socks==2.0.0
 pytz==2021.3
-pywin32==227;platform_system == "Windows"
+pywin32==227
 pyzmq==22.3.0
 requests==2.26.0
 schedule==1.1.0
@@ -64,7 +62,7 @@ soupsieve==2.3.1
 sqlparse==0.4.2
 tornado==6.1
 traitlets==5.1.1
-typing_extensions==4.0.1
+typing-extensions==4.0.1
 urllib3==1.26.7
 virtualenv==20.13.3
 wcwidth==0.2.5
