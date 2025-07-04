@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from front_app.models import Catagory, Message, Product, ProductImage, Promotion, Response, Service, Sponser, TeamMember, Testimonial
+from front_app.models import Catagory, Event, Message, Product, ProductImage, Promotion, Response, Service, Sponser, TeamMember, Testimonial
 
 # Register your models here.
 
@@ -14,3 +14,4 @@ admin.site.register(ProductImage)
 admin.site.register(Service)
 admin.site.register(Testimonial)
 admin.site.register(TeamMember)
+admin.site.register(Event)

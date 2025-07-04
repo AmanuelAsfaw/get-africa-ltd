@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import redirect, render
 
-from front_app.models import Catagory, Message, Product, Service, TeamMember, Testimonial
+from front_app.models import Catagory, Event, Message, Product, Service, TeamMember, Testimonial
 from opal_app.models import ExportedOpal, GemStone, OpalCollection, OpalProduct, Message as OpalMessage
 from .constants import about_info_body, about_information
 from django.contrib.auth.models import User
@@ -19,12 +19,14 @@ def index(request):
     opal_collections = OpalCollection.objects.all()[:10]
     game_stones = GemStone.objects.all()[:10]
     exported_opals = ExportedOpal.objects.all()[:10]
+    events = Event.objects.order_by('-updated_at').all()[:10]
 
     index_data = {
         'opal_products' :opal_products,
         'opal_collections' : opal_collections,
         'game_stones': game_stones,
         'exported_opals': exported_opals,
+        'events': events,
         'is_index': True,
     }
     return render(request,"opal_app/home.html", context=index_data)
@@ -245,6 +247,21 @@ def gallery(request):
         'is_index': True,
     }
     return render(request,"opal_app/gallery.html", context=index_data)
+
+def events(request):
+    opal_products = OpalProduct.objects.all()
+    opal_collections = OpalCollection.objects.all()
+    game_stones = GemStone.objects.all()
+    events = Event.objects.all()
+
+    index_data = {
+        'opal_products' :opal_products,
+        'opal_collections' : opal_collections,
+        'game_stones': game_stones,
+        'events': events,
+        'is_index': True,
+    }
+    return render(request,"opal_app/events.html", context=index_data)
 
 def auth_page(request):
     if request.user.is_authenticated:

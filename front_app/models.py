@@ -97,3 +97,16 @@ class TeamMember(models.Model):
 
     def __str__(self) -> str:
         return str(self.position +' : '+ self.user.username)
+    
+class Event(models.Model):
+    title = models.CharField(max_length=200)
+    image = models.ImageField(null=True, blank=True)
+    date = models.DateField(null=True, blank=True)
+    description = models.TextField(null=True, blank=True)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
+    def __str__(self) -> str:
+        return str(self.title)
+
